@@ -9,6 +9,7 @@ public class GestaoSubmarino {
         System.out.println("--- SISTEMA DE COMANDO PROSUB 2026 ---");
         System.out.println("Informe o repasse anual (em bilhões): ");
         repasse = scanner.nextDouble();
+        scanner.nextLine();
 
         if (repasse < 0.5) {
             System.out.println("Status: ALERTA: Risco de paralisação total. Data estimada: 2045");
@@ -23,15 +24,15 @@ public class GestaoSubmarino {
         String nivelAcesso;
 
         System.out.println("Informe o país de origem da solicitação: ");
-        codigoPais = scanner.next();
+        codigoPais = scanner.nextLine();
         
         System.out.println("Nível de acesso solicitado: ");
-        nivelAcesso = scanner.next();
+        nivelAcesso = scanner.nextLine();
         
-        if (nivelAcesso.equalsIgnoreCase("total") && codigoPais.equalsIgnoreCase("brasil")) {
-            System.out.println("Acesso autorizado ao Almirantado");
-        } else {
+        if (nivelAcesso.equalsIgnoreCase("total") && !codigoPais.equalsIgnoreCase("brasil")) {
             System.out.println("ACESSO NEGADO: Soberania Nacional preservada. Dados criptografados");
+        } else {
+            System.out.println("Acesso autorizado ao Almirantado");
         }
         
         double temperaturaReator;
